@@ -34,7 +34,7 @@ std::string sequence_to_string(const sequence& seq) {
 }
 
 // Generate a pseudorandom sequence of the given size, using the given
-// seed, where all elements are in the range [0, max_element]. 
+// seed, where all elements are in the range [0, max_element].
 // max_element must be non-negative.
 sequence random_sequence(size_t size, unsigned seed, int max_element) {
 
@@ -59,12 +59,12 @@ bool is_nonincreasing(const sequence& A) {
   }
 
 sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
-  
+
   const size_t n = A.size();
-  
+
   // populate the array H with 0 values
   std::vector<size_t> H(n, 0);
-  
+
   // calculate the values of array H
   // note that i has to be declared signed, to avoid an infinite loop, since
   // the loop condition is i >= 0
@@ -72,20 +72,25 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
     for (size_t j = i+1; j < n ; j++) {
       // TODO: write the statements that compute the value of
       // H[i] based on conditions that involve A[i], A[j] and H[j]
+      if (A[i] >= A[j]){ // if value of index i >= value of index j in A
+        if(H[i] <= H[j]){
+          H[i] = H[j]+1;
+        }
+      }
     }
   }
-  
+
   // calculate in max the length of the longest non-increasing subsequence
   // by adding 1 to the maximum value in H
   auto max = *std::max_element(H.begin(), H.end()) + 1;
-  
+
   // allocate space for the subsequence R
   std::vector<int> R(max);
-  
-  // add elements to R in non-increasing order whose H's values are 
+
+  // add elements to R in non-increasing order whose H's values are
   // in decreasing order, starting with the element whose H value is max-1
   // store in index the H values sought: max-1, max-2, max-3, .. 0
-  
+
   size_t index = max-1, j = 0;
   for (size_t i = 0; i < n; ++i) {
     if (H[i] == index) {
@@ -94,7 +99,7 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
       // index and increment j
     }
   }
-  
+
   return sequence(R.begin(), R.begin() + max);
 }
 
@@ -104,7 +109,7 @@ sequence longest_nonincreasing_powerset(const sequence& A) {
   std::vector<size_t> stack(n+1, 0);
   size_t k = 0;
   while (true) {
-    
+
     if (stack[k] < n) {
       stack[k+1] = stack[k] + 1;
       ++k;
@@ -112,19 +117,19 @@ sequence longest_nonincreasing_powerset(const sequence& A) {
       stack[k-1]++;
       k--;
     }
-    
+
     if (k == 0) {
       break;
     }
-    
+
     sequence candidate;
     for (size_t i = 1; i <= k; ++i) {
       candidate.push_back(A[stack[i]-1]);
     }
     // TODO: write the if statement to test whether candidate
     // determines a non-increasing sequence AND has a size
-    // larger than the size of the current best if both 
-    // conditions are satisfied, then stored candidate 
+    // larger than the size of the current best if both
+    // conditions are satisfied, then stored candidate
     // in best
   }
   return best;
