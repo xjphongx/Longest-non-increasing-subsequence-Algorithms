@@ -55,7 +55,12 @@ sequence random_sequence(size_t size, unsigned seed, int max_element) {
 bool is_nonincreasing(const sequence& A) {
   //TO DO: Write code for this function, including rewriting the return
   // statement, and then delete these comments.
-  return false;
+  for (int x = 0; x < A.size()+1; x++){ //for index 0 to n-1
+    if (A[x] > A[x+1]){ //if current index > next index
+      return false;
+    }
+  }
+  return true; // if nothing is false, return true
   }
 
 sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
