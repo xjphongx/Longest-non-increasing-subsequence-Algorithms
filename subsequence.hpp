@@ -58,7 +58,7 @@ bool is_nonincreasing(const sequence& A) {
   /*
     Example: 6 5 7 4 1 
   */
-    for(int i = 0; i < A.size(); i++)
+    for(int i = 0; i < A.size()+1; i++)
     {
         if(A.at(i)<A.at(i+1))
         {
@@ -67,8 +67,6 @@ bool is_nonincreasing(const sequence& A) {
         }
     }
     return true; //return true if the sequence IS in nonincreasing order like 6 5 4 3 2 1
-
-
 
   }
 
@@ -111,6 +109,12 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
       // TODO: write the statements to add A[i] to the
       // sequence R by storing it into R[j], decrement
       // index and increment j
+      //R.push_back(j); // added this line to push something back into vector R
+      R[j]=A[i];
+      i--;
+      j++;
+
+
     }
   }
 
