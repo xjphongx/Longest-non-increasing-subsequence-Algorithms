@@ -45,6 +45,7 @@ void timeTest(size_t n){
             << "of length = " << etb_output.size() << std::endl;
   std::cout << "elapsed time=" << elapsed << " seconds" << std::endl;
 
+  /*
   print_bar();
   std::cout << "powerset" << std::endl;
   timer.reset();
@@ -55,7 +56,7 @@ void timeTest(size_t n){
   std::cout << "elapsed time=" << elapsed << " seconds" << std::endl;
 
   print_bar();
-
+ */
 
 }
 /*
@@ -64,11 +65,13 @@ void timeTest(size_t n){
 int main() {
   
   //testing the empirical timing data
-  timeTest(5);
-  timeTest(10);
-  timeTest(20);
-  timeTest(30);
-  timeTest(40);
+  timeTest(500);
+  timeTest(1000);
+  timeTest(1500);
+  timeTest(2000);
+  timeTest(2500);
+  timeTest(3000);
+  
 
   return 0;
 }

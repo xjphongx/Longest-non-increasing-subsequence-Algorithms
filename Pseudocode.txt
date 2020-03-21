@@ -57,7 +57,7 @@ Part 2:
 6n+13 //step count for part 2
 
 Step Count = Part 1 + Part 2
-           = 2n^2 - n - 4 + 6n +13
+           = 2n^2 - n - 4 + (6n +13)
            = 2n^2 + 5n + 9 
            Therefore the efficiency class is Oh(n^2)
 ************************************************************************
