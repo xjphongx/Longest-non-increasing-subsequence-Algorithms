@@ -60,7 +60,7 @@ bool is_nonincreasing(const sequence& A) {
           i= 0 1 2 3 4
           size= 5
   */
- /*
+ 
     for(int i = 0; i < A.size()-1; i++)
     {
         if(A[i]< A[i+1])
@@ -70,9 +70,7 @@ bool is_nonincreasing(const sequence& A) {
         }
     }
     return true; //return true if the sequence IS in nonincreasing order like 6 5 4 3 2 1
-    */
-   std::cout<<"hello";
-   return false;
+    
   }
 
 sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
@@ -156,6 +154,17 @@ sequence longest_nonincreasing_powerset(const sequence& A) {
     // larger than the size of the current best if both
     // conditions are satisfied, then stored candidate
     // in best
+    for(size_t i =0; i < candidate.size()-1;i++)
+    {
+      if(is_nonincreasing(candidate))
+      {
+         if(candidate.size() > best.size())
+           best = candidate;
+      }
+
+    }
+
+
   }
   return best;
 }
