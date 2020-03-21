@@ -85,8 +85,8 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
   // calculate the values of array H
   // note that i has to be declared signed, to avoid an infinite loop, since
   // the loop condition is i >= 0
-  for (signed int i = n-1;  i>= 0; i--) { //step 2
-    for (size_t j = i+1; j < n-1; j++) { //step 3
+  for (signed int i = n-2;  i>= 0; i--) { //step 2
+    for (size_t j = i+1; j < n; j++) { //step 3
       // TODO: write the statements that compute the value of
       // H[i] based on conditions that involve A[i], A[j] and H[j]
       
@@ -112,13 +112,13 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
   //std::cout << "Entering second loop\n";
   size_t index = max-1, j = 0;
   for (size_t i = 0; i < n; ++i) {
-    if (H[i] >= index) {
+    if (H[i] == index) {
       // TODO: write the statements to add A[i] to the
       // sequence R by storing it into R[j], decrement
       // index and increment j
 
-    
-      R.at(j)=A.at(i);
+      R[j]=A.at(i);
+      index--;
       j++;
   
 
