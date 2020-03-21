@@ -22,12 +22,10 @@ void print_bar() {
   std::cout << std::string(79, '-') << std::endl;
 }
 
-int main() {
+void timeTest(size_t n){
 
-  const size_t n = 20;
-
+  //const size_t n = 5;
   assert(n > 0);
-
   // Use a hardcoded seed for reproducibility between runs.
   auto input = random_sequence(n, 0, 1000);
 
@@ -57,6 +55,20 @@ int main() {
   std::cout << "elapsed time=" << elapsed << " seconds" << std::endl;
 
   print_bar();
+
+
+}
+/*
+    main function is used to do the testing
+*/
+int main() {
+  
+  //testing the empirical timing data
+  timeTest(5);
+  timeTest(10);
+  timeTest(20);
+  timeTest(30);
+  timeTest(40);
 
   return 0;
 }
