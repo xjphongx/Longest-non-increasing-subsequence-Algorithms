@@ -3,7 +3,7 @@
 //
 // Example code showing how to run each algorithm while measuring
 // elapsed times precisely. You should modify this program to gather
-// all of your experimental data.  
+// all of your experimental data.
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -13,9 +13,7 @@
 #include <iostream>
 #include <random>
 #include <vector>
-
 #include "timer.hpp"
-
 #include "subsequence.hpp"
 
 void print_bar() {
@@ -35,7 +33,7 @@ void timeTest(size_t n){
   print_bar();
   std::cout << "n = " << n << std::endl
             << sequence_to_string(input) << std::endl;
-
+  /*
   print_bar();
   std::cout << "end to beginning" << std::endl;
   timer.reset();
@@ -44,8 +42,8 @@ void timeTest(size_t n){
   std::cout << "output = " << sequence_to_string(etb_output) << std::endl
             << "of length = " << etb_output.size() << std::endl;
   std::cout << "elapsed time=" << elapsed << " seconds" << std::endl;
+  */
 
-  /*
   print_bar();
   std::cout << "powerset" << std::endl;
   timer.reset();
@@ -56,22 +54,26 @@ void timeTest(size_t n){
   std::cout << "elapsed time=" << elapsed << " seconds" << std::endl;
 
   print_bar();
- */
+
 
 }
 /*
     main function is used to do the testing
 */
 int main() {
-  
-  //testing the empirical timing data
-  timeTest(500);
-  timeTest(1000);
-  timeTest(1500);
-  timeTest(2000);
-  timeTest(2500);
-  timeTest(3000);
-  
+
+  //testing the empirical timing data of beginning to end
+  //timeTest(500);
+  //timeTest(1000);
+  //timeTest(1500);
+  //timeTest(2000);
+  //timeTest(2500);
+  //timeTest(3000);
+
+  //testing the timing data of powerset
+  for(int i = 1; i <= 30; i++){
+    timeTest(i);
+  }
 
   return 0;
 }
