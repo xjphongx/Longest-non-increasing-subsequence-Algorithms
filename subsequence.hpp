@@ -60,22 +60,21 @@ bool is_nonincreasing(const sequence& A) {
           i= 0 1 2 3 4
           size= 5
   */
- 
     for(int i = 0; i < A.size()-1; i++)
     {
-        if(A[i]< A[i+1])
+        if(A[i] < A[i+1])
         {
             return false; //return false if 5 < 7
             //break;//break out if there is a case
         }
     }
+
     return true; //return true if the sequence IS in nonincreasing order like 6 5 4 3 2 1
-    
   }
 
 sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
-  
-  const size_t n = A.size(); 
+
+  const size_t n = A.size();
 
   // populate the array H with 0 values
   std::vector<size_t> H(n, 0); //step 1
@@ -87,11 +86,11 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
     for (size_t j = i+1; j < n; j++) { //step 3
       // TODO: write the statements that compute the value of
       // H[i] based on conditions that involve A[i], A[j] and H[j]
-      
+
       if (A[i] >= A[j]){ //step 4
         if(H[i] <= H[j]){
           //step 5
-          H[i] = H[j]+1; 
+          H[i] = H[j]+1;
         }
       }
     }
@@ -114,12 +113,9 @@ sequence longest_nonincreasing_end_to_beginning(const sequence& A) {
       // TODO: write the statements to add A[i] to the
       // sequence R by storing it into R[j], decrement
       // index and increment j
-
       R[j]=A.at(i);
       index--;
       j++;
-  
-
     }
   }
 
@@ -154,16 +150,14 @@ sequence longest_nonincreasing_powerset(const sequence& A) {
     // larger than the size of the current best if both
     // conditions are satisfied, then stored candidate
     // in best
-    for(size_t i =0; i < candidate.size()-1;i++)
+    for(size_t i = 0; i < candidate.size(); i++)
     {
       if(is_nonincreasing(candidate))
       {
          if(candidate.size() > best.size())
            best = candidate;
       }
-
     }
-
 
   }
   return best;
