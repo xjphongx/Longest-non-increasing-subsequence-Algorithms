@@ -1,6 +1,6 @@
 Pseudocode for mathematical analysis
 This is used to solve the efficiency class using Big-Oh notation.
-
+************************************************************************
 Algorithm 1: End-to-Beginning Algorithm
                                             Step Count Part 1
 Set n = size of vector A                +1
@@ -28,7 +28,7 @@ endfor
 return sequence R with max              +1
 
 ************************************************************************
-Proving efficiency class of Algorithm 1: 
+Proving efficiency class of Algorithm 1:
 Step Count = Part 1 + Part 2
 
 Part 1:
@@ -36,13 +36,13 @@ n-2 n
 SUM SUM 4
 i=0 j=i+1
 
-n-2 
+n-2
 SUM [4(n-(i+1)+1)] = 4(n-i)
-i=0 
+i=0
 
-  n-2 
+  n-2
 4 SUM n-i  //do the split
-  i=0 
+  i=0
 
         n-2      n-2
 4 ( n + SUM n -  SUM i )  i=1 bc i=0 yields o
@@ -58,7 +58,43 @@ Part 2:
 
 Step Count = Part 1 + Part 2
            = 2n^2 - n - 4 + (6n +13)
-           = 2n^2 + 5n + 9 
+           = 2n^2 + 5n + 9
            Therefore the efficiency class is Oh(n^2)
 ************************************************************************
+Algorithm 2: Powerset Algorithm
+                                              Step Count
+Set n = size of Vector A                      +1
+initialize sequence Best                      +1
+initialize vector Stack with n+1 length       +1
+initialize k = 0                              +1
 
+while true
+
+  if (Stack[k] < n)                           1+max(4,4)
+    Stack[k+1] = Stack[k] + 1
+    k = k+1
+  else
+    Stack[k-1] = Stack[k-1] + 1
+    k = k-1
+
+  if k = 0                                    1+max(1,0)
+    break
+
+  initialize sequence Candidate               +1
+  for i = 1 to k                              ?
+    ???                                       ?
+  endfor
+
+  for j = 0 to size of sequence Candidate     ?
+    if candidate is nonincreasing             ?
+      if size of Candidate > size of Best     ?
+        Best = Candidate
+  endfor
+
+endwhile
+
+return sequence Best
+************************************************************************
+Proving efficiency class of Algorithm 2:
+
+************************************************************************
