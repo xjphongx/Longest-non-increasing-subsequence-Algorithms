@@ -68,7 +68,7 @@ initialize sequence Best                      +1
 initialize vector Stack with n+1 length       +1
 initialize k = 0                              +1
 
-while true
+while true                                    
 
   if (Stack[k] < n)                           1+max(4,4)
     Stack[k+1] = Stack[k] + 1
@@ -85,8 +85,8 @@ while true
      push to candiate                         +1
   endfor
 
-  for j = 0 to size of sequence Candidate     ?
-    if candidate is nonincreasing             ?
+  for j = 0 to Candidate size n do            (n-0+1) times
+    if candidate is nonincreasing             
       if size of Candidate > size of Best     ?
         Best = Candidate
   endfor
