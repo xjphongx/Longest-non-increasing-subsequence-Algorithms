@@ -81,8 +81,8 @@ while true
     break
 
   initialize sequence Candidate               +1
-  for i = 1 to k                              ?
-    ???                                       ?
+  for i = 1 to n do                           (n-1+1) times
+     push to candiate                         +1
   endfor
 
   for j = 0 to size of sequence Candidate     ?
