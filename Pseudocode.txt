@@ -59,7 +59,7 @@ Part 2:
 Step Count = Part 1 + Part 2
            = 2n^2 - n - 4 + (6n +13)
            = 2n^2 + 5n + 9
-           Therefore the efficiency class is Oh(n^2)
+           Therefore the efficiency class is O(n^2)
 ************************************************************************
 Algorithm 2: Powerset Algorithm
                                               Step Count
@@ -85,10 +85,10 @@ while true
      push to candiate                         +1
   endfor
 
-  for j = 0 to Candidate size n do            (n-0+1) times
-    if candidate is nonincreasing             
-      if size of Candidate > size of Best     ?
-        Best = Candidate
+  for j = 0 to Candidate size n do            n
+    if candidate is nonincreasing             max(max(1,0),0)
+      if size of Candidate > size of Best     
+        Best = Candidate                      
   endfor
 
 endwhile
@@ -97,4 +97,8 @@ return sequence Best
 ************************************************************************
 Proving efficiency class of Algorithm 2:
 
+
+
+Step count = 1+1+1+1 + 1+max(4,4) + 1+max(1,0) + 1+(n-1+1) + (n+1)*max(max(1,0),0)
+             4 + (1+4) + (1+1) + (1+n) + (n+1)
 ************************************************************************
