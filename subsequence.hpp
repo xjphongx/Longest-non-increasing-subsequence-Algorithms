@@ -150,15 +150,11 @@ sequence longest_nonincreasing_powerset(const sequence& A) {
     // larger than the size of the current best if both
     // conditions are satisfied, then stored candidate
     // in best
-    for(size_t i = 0; i < candidate.size(); i++)
-    {
       if(is_nonincreasing(candidate))
       {
          if(candidate.size() > best.size())
            best = candidate;
       }
-    }
-
   }
   return best;
 }
